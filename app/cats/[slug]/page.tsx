@@ -27,14 +27,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: cat.name,
     description: cat.description,
-    icons: {
-      ...METADATA_ICONS,
-      shortcut: {
-        url: cat.image,
-        type: "image/jpeg",
-        sizes: "32x32",
-      },
-    },
+    icons:
+      cat.slug === "maine-coon"
+        ? {
+            ...METADATA_ICONS,
+            apple: {
+              url: cat.appleIcon,
+              sizes: "180x180",
+            },
+            shortcut: {
+              url: cat.shortcutIcon,
+              sizes: "96x96",
+            },
+          }
+        : METADATA_ICONS,
     openGraph: {
       title: cat.name,
       description: cat.description,

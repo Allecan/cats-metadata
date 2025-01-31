@@ -13,7 +13,7 @@ export const METADATA_ICONS: Icons = {
     },
   ],
   shortcut: {
-    url: "/favicon.ico",
+    url: "/favicon.svg",
   },
   apple: {
     url: "/apple-touch-icon.png",

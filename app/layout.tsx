@@ -31,6 +31,9 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME} ${COUNTRY_CODE_NAME[COUNTRY_CODE]}`,
     default: `${SITE_NAME} ${COUNTRY_CODE_NAME[COUNTRY_CODE]}`,
   },
+  other: {
+    "apple-mobile-web-app-title": SITE_NAME,
+  },
 };
 
 export default function RootLayout({

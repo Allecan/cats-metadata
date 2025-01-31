@@ -22,6 +22,8 @@ export const CATS = [
       lifeExpectancy: "12-15 years",
     },
     image: "https://allecan.github.io/cats/maine-coon.jpg",
+    shortcutIcon: "https://allecan.github.io/cats/maine-coon-96x96.jpg",
+    appleIcon: "https://allecan.github.io/cats/maine-coon-180x180.jpg",
   },
   {
     slug: "persian",
@@ -119,4 +121,4 @@ export const CATS = [
     },
     image: "https://allecan.github.io/cats/abyssinian.jpg",
   },
-];
+] as const;
