@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import { NEXT_PUBLIC_SITE_URL, SITE_NAME } from "@/utils/env";
+import { COUNTRY_CODE, NEXT_PUBLIC_SITE_URL, SITE_NAME } from "@/utils/env";
+import { COUNTRY_CODE_NAME } from "@/utils/constants/country-names";
 
 import "./globals.css";
 
@@ -21,9 +22,16 @@ const DEFAULT_URL = NEXT_PUBLIC_SITE_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(DEFAULT_URL),
+  alternates: {
+    canonical: "/",
+  },
   title: {
-    template: `%s | ${SITE_NAME}`,
-    default: SITE_NAME,
+    template: `%s | ${SITE_NAME} ${COUNTRY_CODE_NAME[COUNTRY_CODE]}`,
+    default: `${SITE_NAME} ${COUNTRY_CODE_NAME[COUNTRY_CODE]}`,
+  },
+  openGraph: {
+    type: "website",
+    siteName: `${SITE_NAME} ${COUNTRY_CODE_NAME[COUNTRY_CODE]}`,
   },
 };
 

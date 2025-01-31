@@ -23,6 +23,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: cat.name,
+    description: cat.description,
+    openGraph: {
+      title: cat.name,
+      description: cat.description,
+      images: {
+        alt: cat.name,
+        height: 630,
+        url: cat.image,
+        width: 1200,
+      },
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: cat.name,
+      description: cat.description,
+      images: cat.image,
+    },
   };
 }
 
