@@ -41,6 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: cat.image,
       type: "website",
       siteName: `${SITE_NAME} ${COUNTRY_CODE_NAME[COUNTRY_CODE]}`,
+      url: `/cats/${cat.slug}`,
     },
     twitter: {
       card: "summary_large_image",
