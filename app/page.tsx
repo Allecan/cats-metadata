@@ -1,7 +1,37 @@
+import type { Metadata } from "next";
+
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+import { COUNTRY_CODE_NAME } from "@/utils/constants/country-names";
+import { COUNTRY_CODE, NEXT_PUBLIC_SITE_URL, SITE_NAME } from "@/utils/env";
+
+const DEFAULT_URL = NEXT_PUBLIC_SITE_URL
+  ? `https://${NEXT_PUBLIC_SITE_URL}`
+  : "http://localhost:3000";
+
+const TITLE = `${SITE_NAME} ${COUNTRY_CODE_NAME[COUNTRY_CODE]}`;
+const DESCRIPTION = "Cats metadata app";
+
+export const metadata: Metadata = {
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    images: {
+      alt: "Next.js logo",
+      url: "/next.svg",
+    },
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: "/next.svg",
+  },
+};
+
+export default function HomePage() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
@@ -15,7 +45,7 @@ export default function Home() {
         />
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2">
-            Get started by editing{" "}
+            Welcome to {DEFAULT_URL}{" "}
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
               app/page.tsx
             </code>
