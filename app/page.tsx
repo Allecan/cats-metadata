@@ -1,35 +1,11 @@
-import type { Metadata } from "next";
-
 import Image from "next/image";
 import Link from "next/link";
 
-import { COUNTRY_CODE_NAME } from "@/utils/constants/country-names";
-import { COUNTRY_CODE, NEXT_PUBLIC_SITE_URL, SITE_NAME } from "@/utils/env";
+import { NEXT_PUBLIC_SITE_URL } from "@/utils/env";
 
 const DEFAULT_URL = NEXT_PUBLIC_SITE_URL
   ? `https://${NEXT_PUBLIC_SITE_URL}`
   : "http://localhost:3000";
-
-const TITLE = `${SITE_NAME} ${COUNTRY_CODE_NAME[COUNTRY_CODE]}`;
-const DESCRIPTION = "Cats metadata app";
-
-export const metadata: Metadata = {
-  description: DESCRIPTION,
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    images: {
-      alt: "Next.js logo",
-      url: "/next.svg",
-    },
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: TITLE,
-    description: DESCRIPTION,
-    images: "/next.svg",
-  },
-};
 
 export default function HomePage() {
   return (

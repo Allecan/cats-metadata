@@ -29,10 +29,6 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME} ${COUNTRY_CODE_NAME[COUNTRY_CODE]}`,
     default: `${SITE_NAME} ${COUNTRY_CODE_NAME[COUNTRY_CODE]}`,
   },
-  openGraph: {
-    type: "website",
-    siteName: `${SITE_NAME} ${COUNTRY_CODE_NAME[COUNTRY_CODE]}`,
-  },
 };
 
 export default function RootLayout({

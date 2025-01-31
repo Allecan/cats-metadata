@@ -1,4 +1,6 @@
 import { CATS } from "@/utils/constants/cats";
+import { COUNTRY_CODE_NAME } from "@/utils/constants/country-names";
+import { COUNTRY_CODE, SITE_NAME } from "@/utils/env";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,15 +26,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: cat.name,
     description: cat.description,
+    icons: "/vercel.svg",
     openGraph: {
       title: cat.name,
       description: cat.description,
-      images: {
-        alt: cat.name,
-        height: 630,
-        url: cat.image,
-        width: 1200,
-      },
+      images: cat.image,
+      type: "website",
+      siteName: `${SITE_NAME} ${COUNTRY_CODE_NAME[COUNTRY_CODE]}`,
     },
     twitter: {
       card: "summary_large_image",
