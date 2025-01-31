@@ -1,18 +1,19 @@
-type Cat = {
-  slug: string;
-  name: string;
-  description: string;
-  characteristics: {
-    temperament: string;
-    size: string;
-    lifeExpectancy: string;
-  };
-  image: string;
-  shortcutIcon: string;
-  appleIcon: string;
-};
+// type Cat = {
+//   slug: string;
+//   name: string;
+//   description: string;
+//   characteristics: {
+//     temperament: string;
+//     size: string;
+//     lifeExpectancy: string;
+//   };
+//   image: string;
+//   shortcutIcon: string;
+//   appleIcon: string;
+// };
 
-export const CATS: Cat[] = [
+export const CATS = [
+  // export const CATS: Cat[] = [
   {
     slug: "ragdoll",
     name: "Ragdoll",

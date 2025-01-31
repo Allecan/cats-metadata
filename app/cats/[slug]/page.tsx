@@ -16,13 +16,15 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
 
-  const cat = CATS.find((cat) => cat.slug === slug);
+  const cat = await CATS.find((cat) => cat.slug === slug);
 
   if (!cat) {
     return {
       title: "Cat not found",
     };
   }
+
+  const revalidateSeconds = 0;
 
   return {
     title: cat.name,
@@ -52,6 +54,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: cat.name,
       description: cat.description,
       images: cat.image,
+    },
+    other: {
+      "Cache-Control": `public, max-age=${revalidateSeconds}, must-revalidate`,
     },
   };
 }
