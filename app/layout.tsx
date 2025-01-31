@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 const DEFAULT_URL = NEXT_PUBLIC_SITE_URL
-  ? `https://${NEXT_PUBLIC_SITE_URL}`
+  ? NEXT_PUBLIC_SITE_URL
   : "http://localhost:3000";
 
 export const metadata: Metadata = {
