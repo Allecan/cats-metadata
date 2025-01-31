@@ -1,5 +1,6 @@
 import { CATS } from "@/utils/constants/cats";
 import { COUNTRY_CODE_NAME } from "@/utils/constants/country-names";
+import { METADATA_ICONS } from "@/utils/constants/metadata-icons";
 import { COUNTRY_CODE, SITE_NAME } from "@/utils/env";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: cat.name,
     description: cat.description,
-    icons: "/colitas.png",
+    icons: METADATA_ICONS,
     openGraph: {
       title: cat.name,
       description: cat.description,

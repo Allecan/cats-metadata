@@ -5,6 +5,7 @@ import { COUNTRY_CODE, NEXT_PUBLIC_SITE_URL, SITE_NAME } from "@/utils/env";
 import { COUNTRY_CODE_NAME } from "@/utils/constants/country-names";
 
 import "./globals.css";
+import { METADATA_ICONS } from "@/utils/constants/metadata-icons";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +23,7 @@ const DEFAULT_URL = NEXT_PUBLIC_SITE_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(DEFAULT_URL),
-  icons: "/colitas.png",
+  icons: METADATA_ICONS,
   alternates: {
     canonical: "/",
   },

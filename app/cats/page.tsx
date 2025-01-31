@@ -1,4 +1,5 @@
 import { CATS } from "@/utils/constants/cats";
+import { METADATA_ICONS } from "@/utils/constants/metadata-icons";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,7 +7,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Cats",
   description: "Cats list page of popular cats",
-  icons: "/colitas.svg",
+  icons: METADATA_ICONS,
 };
 
 export default function CatsPage() {
