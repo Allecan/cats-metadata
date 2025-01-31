@@ -4,6 +4,8 @@ import { COUNTRY_CODES } from "./constants/country-codes";
 
 const envSchema = z.object({
   NEXT_PUBLIC_SITE_URL: z.string().url().default("http://localhost:3000"),
+
+  API_URL: z.string().url().default("http://localhost:3000/api"),
   COUNTRY_CODE: z.enum(COUNTRY_CODES, {
     required_error: "COUNTRY_CODE env is required and must be GT, MX or ES",
   }),
@@ -22,5 +24,11 @@ if (!success) {
   process.exit(1);
 }
 
-export const { NEXT_PUBLIC_SITE_URL, COUNTRY_CODE, SECRET_KEY, SITE_NAME } =
-  data;
+export const {
+  NEXT_PUBLIC_SITE_URL,
+
+  API_URL,
+  COUNTRY_CODE,
+  SECRET_KEY,
+  SITE_NAME,
+} = data;

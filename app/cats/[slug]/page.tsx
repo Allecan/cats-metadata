@@ -1,11 +1,13 @@
-import { CATS } from "@/utils/constants/cats";
-import { COUNTRY_CODE_NAME } from "@/utils/constants/country-names";
-import { METADATA_ICONS } from "@/utils/constants/metadata-icons";
-import { COUNTRY_CODE, SITE_NAME } from "@/utils/env";
 import type { Metadata } from "next";
+
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+import { findOneCat } from "@/app/server-actions/find-one-cat";
+import { COUNTRY_CODE_NAME } from "@/utils/constants/country-names";
+import { METADATA_ICONS } from "@/utils/constants/metadata-icons";
+import { COUNTRY_CODE, SITE_NAME } from "@/utils/env";
 
 type Props = {
   params: Promise<{
@@ -16,15 +18,15 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
 
-  const cat = await CATS.find((cat) => cat.slug === slug);
+  const response = await findOneCat(slug);
 
-  if (!cat) {
+  if (response.status === "error") {
     return {
       title: "Cat not found",
     };
   }
 
-  const revalidateSeconds = 0;
+  const cat = response.data;
 
   return {
     title: cat.name,
@@ -55,20 +57,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: cat.description,
       images: cat.image,
     },
-    other: {
-      "Cache-Control": `public, max-age=${revalidateSeconds}, must-revalidate`,
-    },
+    // other: {
+    //   "Cache-Control": `public, max-age=${revalidateSeconds}, must-revalidate`,
+    // },
   };
 }
 
 export default async function CatPage({ params }: Props) {
   const { slug } = await params;
 
-  const cat = CATS.find((cat) => cat.slug === slug);
+  const response = await findOneCat(slug);
 
-  if (!cat) {
+  if (response.status === "error") {
     return notFound();
   }
+
+  const cat = response.data;
 
   return (
     <main className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] sm:space-y-10 space-y-8">

@@ -1,19 +1,4 @@
-// type Cat = {
-//   slug: string;
-//   name: string;
-//   description: string;
-//   characteristics: {
-//     temperament: string;
-//     size: string;
-//     lifeExpectancy: string;
-//   };
-//   image: string;
-//   shortcutIcon: string;
-//   appleIcon: string;
-// };
-
 export const CATS = [
-  // export const CATS: Cat[] = [
   {
     slug: "ragdoll",
     name: "Ragdoll",
@@ -154,4 +139,5 @@ export const CATS = [
     shortcutIcon: "https://allecan.github.io/cats/abyssinian-96x96.jpg",
     appleIcon: "https://allecan.github.io/cats/abyssinian-180x180.jpg",
   },
-] as const;
+];
+// ] as const;
