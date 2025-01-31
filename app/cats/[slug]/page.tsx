@@ -27,7 +27,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: cat.name,
     description: cat.description,
-    icons: METADATA_ICONS,
+    icons: {
+      ...METADATA_ICONS,
+      shortcut: {
+        url: cat.image,
+        type: "image/jpeg",
+        sizes: "32x32",
+      },
+    },
     openGraph: {
       title: cat.name,
       description: cat.description,
