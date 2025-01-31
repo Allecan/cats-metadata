@@ -6,7 +6,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Cats",
   description: "Cats list page of popular cats",
-  icons: "/vercel.svg",
+  icons: "/colitas.svg",
 };
 
 export default function CatsPage() {

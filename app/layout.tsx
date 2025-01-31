@@ -22,6 +22,7 @@ const DEFAULT_URL = NEXT_PUBLIC_SITE_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(DEFAULT_URL),
+  icons: "/colitas.png",
   alternates: {
     canonical: "/",
   },

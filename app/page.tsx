@@ -4,7 +4,7 @@ import Link from "next/link";
 import { NEXT_PUBLIC_SITE_URL } from "@/utils/env";
 
 const DEFAULT_URL = NEXT_PUBLIC_SITE_URL
-  ? `https://${NEXT_PUBLIC_SITE_URL}`
+  ? `${NEXT_PUBLIC_SITE_URL}`
   : "http://localhost:3000";
 
 export default function HomePage() {
