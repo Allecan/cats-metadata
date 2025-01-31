@@ -1,4 +1,18 @@
-export const CATS = [
+type Cat = {
+  slug: string;
+  name: string;
+  description: string;
+  characteristics: {
+    temperament: string;
+    size: string;
+    lifeExpectancy: string;
+  };
+  image: string;
+  shortcutIcon: string;
+  appleIcon: string;
+};
+
+export const CATS: Cat[] = [
   {
     slug: "ragdoll",
     name: "Ragdoll",
@@ -10,6 +24,8 @@ export const CATS = [
       lifeExpectancy: "12-17 years",
     },
     image: "https://allecan.github.io/cats/ragdoll.jpg",
+    shortcutIcon: "https://allecan.github.io/cats/ragdoll-96x96.jpg",
+    appleIcon: "https://allecan.github.io/cats/ragdoll-180x180.jpg",
   },
   {
     slug: "maine-coon",
@@ -22,8 +38,8 @@ export const CATS = [
       lifeExpectancy: "12-15 years",
     },
     image: "https://allecan.github.io/cats/maine-coon.jpg",
-    shortcutIcon: "https://allecan.github.io/cats/maine-coon-96x96.jpg",
     appleIcon: "https://allecan.github.io/cats/maine-coon-180x180.jpg",
+    shortcutIcon: "https://allecan.github.io/cats/maine-coon-96x96.jpg",
   },
   {
     slug: "persian",
@@ -36,6 +52,8 @@ export const CATS = [
       lifeExpectancy: "10-15 years",
     },
     image: "https://allecan.github.io/cats/persian.jpg",
+    appleIcon: "https://allecan.github.io/cats/persian-180x180.jpg",
+    shortcutIcon: "https://allecan.github.io/cats/persian-96x96.jpg",
   },
   {
     slug: "siamese",
@@ -48,6 +66,8 @@ export const CATS = [
       lifeExpectancy: "15-20 years",
     },
     image: "https://allecan.github.io/cats/siamese.jpg",
+    shortcutIcon: "https://allecan.github.io/cats/siamese-96x96.jpg",
+    appleIcon: "https://allecan.github.io/cats/siamese-180x180.jpg",
   },
   {
     slug: "british-shorthair",
@@ -60,6 +80,8 @@ export const CATS = [
       lifeExpectancy: "12-17 years",
     },
     image: "https://allecan.github.io/cats/british-shorthair.jpg",
+    shortcutIcon: "https://allecan.github.io/cats/british-shorthair-96x96.jpg",
+    appleIcon: "https://allecan.github.io/cats/british-shorthair-180x180.jpg",
   },
   {
     slug: "scottish-fold",
@@ -72,6 +94,8 @@ export const CATS = [
       lifeExpectancy: "11-14 years",
     },
     image: "https://allecan.github.io/cats/scottish-fold.jpg",
+    shortcutIcon: "https://allecan.github.io/cats/scottish-fold-96x96.jpg",
+    appleIcon: "https://allecan.github.io/cats/scottish-fold-180x180.jpg",
   },
   {
     slug: "bengal",
@@ -84,6 +108,8 @@ export const CATS = [
       lifeExpectancy: "12-16 years",
     },
     image: "https://allecan.github.io/cats/bengal.jpg",
+    shortcutIcon: "https://allecan.github.io/cats/bengal-96x96.jpg",
+    appleIcon: "https://allecan.github.io/cats/bengal-180x180.jpg",
   },
   {
     slug: "sphynx",
@@ -96,6 +122,8 @@ export const CATS = [
       lifeExpectancy: "12-14 years",
     },
     image: "https://allecan.github.io/cats/sphynx.jpg",
+    shortcutIcon: "https://allecan.github.io/cats/sphynx-96x96.jpg",
+    appleIcon: "https://allecan.github.io/cats/sphynx-180x180.jpg",
   },
   {
     slug: "russian-blue",
@@ -108,6 +136,8 @@ export const CATS = [
       lifeExpectancy: "15-20 years",
     },
     image: "https://allecan.github.io/cats/russian-blue.jpg",
+    shortcutIcon: "https://allecan.github.io/cats/russian-blue-96x96.jpg",
+    appleIcon: "https://allecan.github.io/cats/russian-blue-180x180.jpg",
   },
   {
     slug: "abyssinian",
@@ -120,5 +150,7 @@ export const CATS = [
       lifeExpectancy: "12-16 years",
     },
     image: "https://allecan.github.io/cats/abyssinian.jpg",
+    shortcutIcon: "https://allecan.github.io/cats/abyssinian-96x96.jpg",
+    appleIcon: "https://allecan.github.io/cats/abyssinian-180x180.jpg",
   },
 ] as const;

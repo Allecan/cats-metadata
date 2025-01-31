@@ -35,6 +35,7 @@ export default function CatsPage() {
       <section className="grid grid-cols-1 place-items-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {CATS.map((cat) => (
           <Link
+            prefetch
             key={cat.slug}
             className="rounded-xl border-[2px] border-white/25 p-4 grid grid-cols-[144px_1fr] gap-x-4 max-w-96 w-full overflow-x-scroll lg:overflow-x-hidden min-h-[180px] max-h-[180px] hover:border-white/70 transition-colors"
             href={`/cats/${cat.slug}`}
