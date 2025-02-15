@@ -15,15 +15,16 @@ type Props = {
   }>;
 };
 
+
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
 
   const response = await findOneCat(slug);
 
   if (response.status === "error") {
-    return {
-      title: "Cat not found",
-    };
+    return { title: "Cat not found" };
   }
 
   const cat = response.data;
@@ -42,7 +43,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         sizes: "96x96",
       },
     },
-
     openGraph: {
       title: cat.name,
       description: cat.description,
@@ -57,9 +57,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: cat.description,
       images: cat.image,
     },
-    // other: {
-    //   "Cache-Control": `public, max-age=${revalidateSeconds}, must-revalidate`,
-    // },
   };
 }
 
