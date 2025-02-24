@@ -1,8 +1,10 @@
-import { CATS } from "@/utils/constants/cats";
-import { METADATA_ICONS } from "@/utils/constants/metadata-icons";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+import { METADATA_ICONS } from "@/utils/constants/metadata-icons";
+
+import { findManyCats } from "../server-actions/find-many-cats";
 
 export const metadata: Metadata = {
   title: "Cats",
@@ -10,7 +12,13 @@ export const metadata: Metadata = {
   icons: METADATA_ICONS,
 };
 
-export default function CatsPage() {
+export default async function CatsPage() {
+  const cats = await findManyCats();
+
+  if (cats.status === "error") {
+    return <div>{cats.error}</div>;
+  }
+
   return (
     <main className="min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] sm:space-y-10 space-y-8">
       <section className="flex flex-col gap-8 items-center sm:items-start w-full">
@@ -33,7 +41,7 @@ export default function CatsPage() {
       </section>
 
       <section className="grid grid-cols-1 place-items-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {CATS.map((cat) => (
+        {cats.data.map((cat) => (
           <Link
             prefetch
             key={cat.slug}
